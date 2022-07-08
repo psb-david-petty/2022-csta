@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Codecheck.io</title>
+</head>
+<body>
+
+<!-- DESCRIPTION -->
+
+  <main style="border: thin solid gray; padding: 1em;">
+    <h1><a href="http://codecheck.io/">Codecheck.io</a></h1>
+    <p>This illustrates many of the <em>convention over configuration</em> testing approaches of the <em>new</em> directory-less <a href="http://horstmann.com/codecheck/authoring.html">Codecheck.io</a>. (Note: at least <em>one</em> <code>.java</code> file must have a <code>public static void main(String[] args)</code> method.)</p>
+    <ul>
+      <li><code>CodecheckMain</code> illustrates <a href="http://codecheck.io/">Codecheck.io</a>&apos;s output-matching approach to unit tests by simply <code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html#print-java.lang.String-">SOP</a></code>ing results calculated from generated or static test data or read from a <code>.in</code> file through <code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#in">System.in</a></code>.</li>
+      <li><code>CodecheckTest</code> is a <a href="https://junit.org/junit5/">Junit</a> test suite run automatically, because the filename ends with &apos;<code>Test</code>&apos; (or &apos;<code>Test1</code>&apos;, &apos;<code>Test2</code>&apos;, &apos;<code>Test3</code>&apos;, &hellip;).</li>
+      <li><code>CodecheckTester</code> illustrates <a href="http://codecheck.io/">Codecheck.io</a>&apos;s line pair output-matching approach to unit testing for filenames ending with &apos;<code>Tester</code>&apos; (or &apos;<code>Tester1</code>&apos;, &apos;<code>Tester2</code>&apos;, &apos;<code>Tester3</code>&apos;, &hellip;) &mdash; every line has &apos;<code>: </code>&apos;, every other line begins with &apos;<code>Expected: </code>&apos;, and value pairs following &apos;<code>: </code>&apos; must match.</li>
+      <!-- <li><code>CodecheckUnit</code> provides a <code><a href="https://wiki.c2.com/?PublicStaticVoidMain">PSVM</a></code> method for the <a href="https://junit.org/junit5/">Junit</a> test suite. (It is not necessary, as <a href="https://junit.org/junit5/">Junit</a> <code>Test</code> classes are run automatically.)</li> -->
+    </ul>
+    <p>To complete the assignment, complete the following methods and click <em><code>Submit</code></em>:</p>
+    <ol>
+      <li>Complete the code for the <code>public static int square(int n)</code> method in the <code>CodecheckSquare</code> class that calculates the square of <code>n</code>.</li>
+      <li>Complete the code for the <code>public static int cube(int n)</code> method in the <code>CodecheckCube</code> class that calculates the cube of <code>n</code>.</li>
+    </ol>
+ 
+<!-- APCS BOILERPLATE -->
+
+<p>Include an initial comment with an <code>@author YOUR NAME &lt;your@email.address&gt;</code> line in all solution files.</p>
+
+<!-- /**/ EXPLANATION -->
+
+<hr style="border-top: thin solid gray; background: none;">
+
+<p><strong>Note</strong>: In <a href="https://apstudents.collegeboard.org/courses/ap-computer-science-a">APCS</a> free-response-question <a href="http://horstmann.com/">CodeCheck</a>s there may be code on lines with a <code>/**/</code> comment in the leftmost column &mdash; like this:</p>
+
+<pre style="margin-left: 1.5em; border-left: thin solid gray; padding-left: 0.5em;">   // There may be instance variables, constructors, and methods that are not shown.
+/**/private String word;
+/**/public HiddenWord(String word) { this.word = word; }
+/**/public int length() { return this.word.length(); }</pre>
+
+<p>Any code on lines with a <code>/**/</code> comment in the leftmost column has been added by the <a href="http://horstmann.com/">CodeCheck</a> author(s) and is outside the scope of the APCS free-response question. That code is necessary to complete or test the program(s) and should not be modified, but there may be other valid implementations. Consequently, your solution <em>cannot make assumptions about, nor make use of the knowledge of, any particular implementation of the added code</em>.</p>
+
+  </main>
+
+</body>
+</html>
