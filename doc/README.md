@@ -1,4 +1,4 @@
-# 2022 CSTA &mdash; Unit Testing for Automatic Grading with Student Feedback &mdash; Documentation
+# 2022 CSTA &mdash; Unit Testing &mdash; Documentation
 
 ## Links
 
