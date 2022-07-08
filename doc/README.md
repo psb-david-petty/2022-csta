@@ -9,4 +9,4 @@
 
 <hr>
 
-[&#8617; back](https://psb-david-petty.github.io/2022-csta/), [&#128279; permalink](https://psb-david-petty.github.io/2022-csta/doc/), and [&#128297; repository](https://github.com/psb-david-petty/www-tutorial/doc/) for this page.
+[&#8617; back](https://psb-david-petty.github.io/2022-csta/), [&#128279; permalink](https://psb-david-petty.github.io/2022-csta/doc/), and [&#128297; repository](https://github.com/psb-david-petty/2022-csta/doc/) for this page.
