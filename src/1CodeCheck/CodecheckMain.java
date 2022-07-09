@@ -18,7 +18,7 @@ public class CodecheckMain {
     // Print test results to System.out.
     public static void main(String [] args)
     {
-         /*
+        /*
          * Test using generated data or static data.
          */
         System.out.printf("////////////////// CodecheckMain /////////////////\n");
