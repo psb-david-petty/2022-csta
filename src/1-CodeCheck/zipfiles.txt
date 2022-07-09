@@ -4,4 +4,5 @@ CodecheckMain.java
 CodecheckSquare.java
 CodecheckTest.java
 CodecheckTester.java
+Utilities.java
 test.in

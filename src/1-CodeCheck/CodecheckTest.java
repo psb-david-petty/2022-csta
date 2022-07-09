@@ -1,7 +1,7 @@
 /*
  * CodecheckTest.java
  *
- * Junit tests for Codecheck.java
+ * Junit tests for CodecheckCube.java and CodecheckSquare.java.
  *
  * @author David C. Petty // http://j.mp/psb_david_petty
  */

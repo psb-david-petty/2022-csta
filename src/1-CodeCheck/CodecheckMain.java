@@ -1,7 +1,7 @@
 /*
  * CodecheckMain.java
  *
- * Tests for Codecheck.java
+ * Tests for CodecheckCube.java and CodecheckSquare.java.
  *
  * @author David C. Petty // http://j.mp/psb_david_petty
  */
@@ -21,7 +21,7 @@ public class CodecheckMain {
         /*
          * Test using generated data or static data.
          */
-        System.out.printf("////////////////// CodecheckMain /////////////////\n");
+        System.out.printf("%s\n", Utilities.formatBanner("CodecheckMain"));
 
         // Print square of integers on [0, 20].
         for (int n = 0; n <= 20; n++)

@@ -10,7 +10,7 @@ This illustrates many of the *convention over configuration* testing approaches 
 - `CodecheckTester` illustrates <a href="http://codecheck.io/">Codecheck.io</a>'s line pair output-matching approach to unit testing for filenames ending with '`Tester`' (or '`Tester1`', '`Tester2`', '`Tester3`', &hellip;) &mdash; every line has '`: `', every other line begins with '`Expected: `', and value pairs following '`: `' must match.
 <!-- - `CodecheckUnit` provides a `<a href="https://wiki.c2.com/?PublicStaticVoidMain">PSVM</a>` method for the <a href="https://junit.org/junit5/">Junit</a> test suite. (It is not necessary, as <a href="https://junit.org/junit5/">Junit</a> `Test` classes are run automatically.) -->
 
-To complete the assignment, complete the following methods and click *`Submit`*:
+To complete the assignment, complete the following methods and click *`CodeCheck`* at the bottom of the page:
 
 1. Complete the code for the `public static int square(int n)` method in the `CodecheckSquare` class that calculates the square of `n`.
 1. Complete the code for the `public static int cube(int n)` method in the `CodecheckCube` class that calculates the cube of `n`.

@@ -1,7 +1,7 @@
 /*
  * CodecheckTester.java
  *
- * Tests for Codecheck.java
+ * Tests for CodecheckCube.java and CodecheckSquare.java.
  *
  * @author David C. Petty // http://j.mp/psb_david_petty
  */
@@ -19,7 +19,7 @@ public class CodecheckTester {
 
     public static void main(String [] args)
     {
-        System.out.printf("///////////////// CodecheckTester ////////////////\n");
+        System.out.printf("%s\n", Utilities.formatBanner("CodecheckTester"));
  
         // Unit tests with "Expected: " output format.
         for (int i = 0; i < squares.length; i++) {

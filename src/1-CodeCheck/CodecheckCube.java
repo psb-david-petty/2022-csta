@@ -1,19 +1,19 @@
 /*
- * CodecheckSquare.java
+ * CodecheckCube.java
  *
- * Test of Codecheck.it and its structure using simple square and cube methods.
+ * Test of Codecheck.io and its structure using simple square and cube methods.
  *
 //HIDE
  * @author David C. Petty // http://j.mp/psb_david_petty
  //EDIT * @author YOUR NAME <your@email.address>
  */
 
-class CodecheckSquare
+class CodecheckCube
 {
-    public static int square(int n)
+    public static int cube(int n)
     {
 //HIDE
-        return n * n;
+        return n * n * n;
         //EDIT  return 0;   // STUB
     }
 }
