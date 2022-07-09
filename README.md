@@ -4,7 +4,8 @@
 
 | Link | Description |
 | --- | --- |
-| [https://bit.ly/2022-csta-unit-testing-workshop](https://bit.ly/2022-csta-unit-testing-workshop) | Slides |
+| https://bit.ly/2022-csta-unit-testing-workshop | Slides |
+| https://padlet.com/psb_david_petty/at9mj484p72e3lpi | Padlet |
 | [./doc](https://psb-david-petty.github.io/2022-csta/doc/) | Documentation |
 | [./src](https://psb-david-petty.github.io/2022-csta/src/) | Source Code |
 
