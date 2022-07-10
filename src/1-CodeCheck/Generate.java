@@ -22,8 +22,8 @@ public class Generate {
 
         // Print out test data.
         System.out.printf("        // powers of two and their squares\n%s\n",
-            Utilities.format2D(squares, "squares"));
+            Format.format2D(squares, "squares"));
         System.out.printf("        // powers of two and their cubes\n%s\n",
-            Utilities.format2D(cubes, "cubes"));
+            Format.format2D(cubes, "cubes"));
     }
 }

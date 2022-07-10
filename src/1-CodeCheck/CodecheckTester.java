@@ -19,7 +19,7 @@ public class CodecheckTester {
 
     public static void main(String [] args)
     {
-        System.out.printf("%s\n", Utilities.formatBanner("CodecheckTester"));
+        System.out.printf("%s\n", Feedback.formatBanner("CodecheckTester"));
  
         // Unit tests with "Expected: " output format.
         for (int i = 0; i < squares.length; i++) {

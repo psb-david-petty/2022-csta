@@ -121,7 +121,7 @@ public class CodecheckTest {
 
     @Test
     public void testSquares() {
-        System.out.printf("%s\n", Utilities.formatBanner("testSquares"));
+        System.out.printf("%s\n", Feedback.formatBanner("testSquares"));
         for (int i = 0; i < squares.length; i++) {
             int n = squares[i][0], nSquared = squares[i][1];
             System.out.printf("square(%s) \u2192 %s\n",
@@ -133,7 +133,7 @@ public class CodecheckTest {
 
     @Test
     public void testCubes() {
-        System.out.printf("%s\n", Utilities.formatBanner("testCubes"));
+        System.out.printf("%s\n", Feedback.formatBanner("testCubes"));
         for (int i = 0; i < cubes.length; i++) {
             int n = cubes[i][0], nCubed = cubes[i][1];
             System.out.printf("cube(%s) \u2192 %s\n",

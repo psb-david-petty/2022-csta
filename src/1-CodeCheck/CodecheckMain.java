@@ -21,7 +21,7 @@ public class CodecheckMain {
         /*
          * Test using generated data or static data.
          */
-        System.out.printf("%s\n", Utilities.formatBanner("CodecheckMain"));
+        System.out.printf("%s\n", Feedback.formatBanner("CodecheckMain"));
 
         // Print square of integers on [0, 20].
         for (int n = 0; n <= 20; n++)
