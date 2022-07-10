@@ -84,10 +84,53 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 1D boolean array properly indented.
+     *
+     * @param arr 1D boolean array to be formatted
+     * @return string representation of 1D boolean array properly indented.
+     */
+    public static String format1Dboolean(boolean[] arr) {
+        return Arrays.toString(arr).replace(", ", ",");
+    }
+
+    /** Return string representation of 2D boolean array properly indented.
+     *
+     * @param arr 2D boolean array to be formatted
+     * @return string representation of 2D boolean array properly indented.
+     */
+    public static String format2Dboolean(boolean[][] arr) {
+        final StringBuilder sb = new StringBuilder();
+        for (boolean[] arr1D : arr)
+            sb.append(format1Dboolean(arr1D)).append(",\n");
+        return wrap(sb);
+    }
+
+    /** Return string representation of 3D boolean array properly indented.
+     *
+     * @param arr 3D boolean array to be formatted
+     * @return string representation of 3D boolean array properly indented.
+     */
+    public static String format3Dboolean(boolean[][][] arr) {
+        final StringBuilder sb = new StringBuilder();
+        for (boolean[][] arr2D : arr)
+            sb.append(format2Dboolean(arr2D)).append(",\n");
+        return wrap(sb);
+    }
+
+    /** Return string representation of 1D int array properly indented.
+     *
+     * @param arr 1D int array to be formatted
+     * @return string representation of 1D int array properly indented.
+     */
     public static String format1Dint(int[] arr) {
         return Arrays.toString(arr).replace(", ", ",");
     }
 
+    /** Return string representation of 2D int array properly indented.
+     *
+     * @param arr 2D int array to be formatted
+     * @return string representation of 2D int array properly indented.
+     */
     public static String format2Dint(int[][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (int[] arr1D : arr)
@@ -95,6 +138,11 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 3D int array properly indented.
+     *
+     * @param arr 3D int array to be formatted
+     * @return string representation of 3D int array properly indented.
+     */
     public static String format3Dint(int[][][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (int[][] arr2D : arr)
@@ -102,10 +150,20 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 1D long array properly indented.
+     *
+     * @param arr 1D long array to be formatted
+     * @return string representation of 1D long array properly indented.
+     */
     public static String format1Dlong(long[] arr) {
         return Arrays.toString(arr).replace(", ", ",");
     }
 
+    /** Return string representation of 2D long array properly indented.
+     *
+     * @param arr 2D long array to be formatted
+     * @return string representation of 2D long array properly indented.
+     */
     public static String format2Dlong(long[][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (long[] arr1D : arr)
@@ -113,6 +171,11 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 3D long array properly indented.
+     *
+     * @param arr 3D long array to be formatted
+     * @return string representation of 3D long array properly indented.
+     */
     public static String format3Dlong(long[][][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (long[][] arr2D : arr)
@@ -120,10 +183,20 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 1D double array properly indented.
+     *
+     * @param arr 1D double array to be formatted
+     * @return string representation of 1D double array properly indented.
+     */
     public static String format1Ddouble(double[] arr) {
         return Arrays.toString(arr).replace(", ", ",");
     }
 
+    /** Return string representation of 2D double array properly indented.
+     *
+     * @param arr 2D double array to be formatted
+     * @return string representation of 2D double array properly indented.
+     */
     public static String format2Ddouble(double[][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (double[] arr1D : arr)
@@ -131,6 +204,11 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 3D double array properly indented.
+     *
+     * @param arr 3D double array to be formatted
+     * @return string representation of 3D double array properly indented.
+     */
     public static String format3Ddouble(double[][][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (double[][] arr2D : arr)
@@ -138,6 +216,12 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 1D String array properly indented.
+     * Each String is surrounded by double quotation marks.
+     *
+     * @param arr 1D String array to be formatted
+     * @return string representation of 1D String array properly indented.
+     */
     public static String format1DString(String[] arr) {
         final StringBuilder sb = new StringBuilder();
         for (String str: arr)
@@ -145,6 +229,12 @@ public final class Feedback {
         return sb.insert(0, "[").append("]").toString();
     }
 
+    /** Return string representation of 2D String array properly indented.
+     * Each String is surrounded by double quotation marks.
+     *
+     * @param arr 2D String array to be formatted
+     * @return string representation of 2D String array properly indented.
+     */
     public static String format2DString(String[][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (String[] arr1D : arr)
@@ -152,6 +242,12 @@ public final class Feedback {
         return wrap(sb);
     }
 
+    /** Return string representation of 3D String array properly indented.
+     * Each String is surrounded by double quotation marks.
+     *
+     * @param arr 3D String array to be formatted
+     * @return string representation of 3D String array properly indented.
+     */
     public static String format3DString(String[][][] arr) {
         final StringBuilder sb = new StringBuilder();
         for (String[][] arr2D : arr)

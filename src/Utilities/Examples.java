@@ -115,12 +115,14 @@ public class Examples {
             s += "X";
             System.out.printf("%s\n", Feedback.formatBanner(s));
         }
-        int[] arr1Dint = { 1, 2, 3, 4, 5, 6, 7, };
+
+        // Test array formatters.
+        int[] arr1Dint = { 1, 2, 3, 4, 5, };
         System.out.printf("%s\n", Feedback.format1Dint(arr1Dint));
-        int[] arr1Dlong = { 1, 2, 3, 4, 5, 6, 7, };
-        System.out.printf("%s\n", Feedback.format1Dint(arr1Dint));
-        int[] arr1Ddouble = { 1, 2, 3, 4, 5, 6, 7, };
-        System.out.printf("%s\n", Feedback.format1Dint(arr1Dint));
+        long[] arr1Dlong = { 1, 2, 3, 4, 5, 6, };
+        System.out.printf("%s\n", Feedback.format1Dlong(arr1Dlong));
+        double[] arr1Ddouble = { 1, 2, 3, 4, 5, 6, 7, 8, };
+        System.out.printf("%s\n", Feedback.format1Ddouble(arr1Ddouble));
         int[][] arr2Dint = { { 1, 2, 3, }, { 4, 5, 6, }, { 7, 8, 9, } };
         System.out.printf("%s\n", Feedback.format2Dint(arr2Dint));
         int[][][] arr3Dint = {
@@ -139,9 +141,10 @@ public class Examples {
 
         String[] arr1DString = { "FOO", "BAR", "BLAP", };
         System.out.printf("%s\n", Feedback.format1DString(arr1DString));
-        String[][] arr2DString = { { "FOO", "BAR", "BLAP", }, { "FOO", "BAR", "BLAP", } };
+        String[][] arr2DString = { { "FOO", "BAR", "BLAP", }, { "BIFF", "BOFF", "BUFF", } };
         System.out.printf("%s\n", Feedback.format2DString(arr2DString));
 
+        // Test list formatters.
         List<?> list1D = Arrays.stream(arr1Dint).boxed().collect(Collectors.toList());
         System.out.printf("%s\n", Feedback.format1D(list1D));
         List<List<?>> list2D = new ArrayList<>();
