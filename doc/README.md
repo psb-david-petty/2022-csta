@@ -4,7 +4,8 @@
 
 | Link | Description |
 | --- | --- |
-| [./Utilities](https://psb-david-petty.github.io/2022-csta/doc/Utilities/) | `Utilities.java` javadoc |
+| [./Utilities](https://psb-david-petty.github.io/2022-csta/doc/Utilities/) | `Utilities` javadoc |
+| [./workshop](https://psb-david-petty.github.io/2022-csta/doc/workshop/) | Workshop documentation files |
 
 <hr>
 
