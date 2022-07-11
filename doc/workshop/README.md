@@ -4,9 +4,9 @@
 
 | Link | Description |
 | --- | --- |
-| [./1-codecheck.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-codecheck.html) | 1. Codecheck |
 | [./setup.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/setup.html) | Setup |
-
+| [./1-codecheck.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-codecheck.html) | Introduction to Junit 4 |
+| [./2-circle.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-circle.html) | Generate your own solution and test data |
 
 <hr>
 
