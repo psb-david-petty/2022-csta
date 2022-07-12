@@ -1,5 +1,5 @@
+# Generate javadoc for Utilities.
 dir=$(dirname $0)
-echo $dir
 javadoc -noqualifier all \
   -linksource -sourcepath $dir/Utilities \
   -d $dir/../doc/Utilities -link https://docs.oracle.com/javase/8/docs/api/ \

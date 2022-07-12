@@ -553,7 +553,7 @@ public final class Format {
         Class cls = obj.getClass();
         String type = cls.getName().replace("java.lang.", "");
         // Autobox where possible.
-        if (cls.isInstance(new Boolean(false))) type = "boolean";
+        if (cls.isInstance(Boolean.FALSE)) type = "boolean";
         if (cls.isInstance('\0')) type = "char";
         if (cls.isInstance((byte) 0)) type = "byte";
         if (cls.isInstance((short) 0)) type = "short";
@@ -584,7 +584,7 @@ public final class Format {
             sb.append(String.format("\"%s\"", obj));
         else if (cls.isInstance('\0'))  // autobox Character
             sb.append(String.format("'\\u%04x'", (int) ((Character) obj).charValue()));
-        else if (cls.isInstance(new Boolean(false))
+        else if (cls.isInstance(Boolean.FALSE)
             // Autobox the others for comparison
             || cls.isInstance((byte) 0)
             || cls.isInstance((short) 0)
