@@ -254,4 +254,37 @@ public final class Feedback {
             sb.append(format2DString(arr2D)).append(",\n");
         return wrap(sb);
     }
+
+    /** Return string representation of 1D Object array properly indented.
+     *
+     * @param arr 1D Object array to be formatted
+     * @return string representation of 1D Object array properly indented.
+     */
+    public static String format1DObject(Object[] arr) {
+        return Arrays.toString(arr).replace(", ", ",");
+    }
+
+    /** Return string representation of 2D Object array properly indented.
+     *
+     * @param arr 2D Object array to be formatted
+     * @return string representation of 2D Object array properly indented.
+     */
+    public static String format2DObject(Object[][] arr) {
+        final StringBuilder sb = new StringBuilder();
+        for (Object[] arr1D : arr)
+            sb.append(format1DObject(arr1D)).append(",\n");
+        return wrap(sb);
+    }
+
+    /** Return string representation of 3D Object array properly indented.
+     *
+     * @param arr 3D Object array to be formatted
+     * @return string representation of 3D Object array properly indented.
+     */
+    public static String format3DObject(Object[][][] arr) {
+        final StringBuilder sb = new StringBuilder();
+        for (Object[][] arr2D : arr)
+            sb.append(format2DObject(arr2D)).append(",\n");
+        return wrap(sb);
+    }
 }

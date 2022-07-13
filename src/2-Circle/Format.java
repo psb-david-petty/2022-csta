@@ -57,6 +57,9 @@ public final class Format {
         EmptyList() {
             super("list cannot be empty");
         }
+        EmptyList(String message) {
+            super(message);
+        }
     }
 
     /**
@@ -158,7 +161,7 @@ public final class Format {
     public static String format1D(List<?> list, String name, Mod modifier) {
         if (list.size() == 0) throw new EmptyList();
         int indent = modifier.equals(Mod.LOCAL) ? 2 : 1;
-        String className = getType(list.get(0));
+        String className = getType(list);
         String declaration = modifier.equals(Mod.LOCAL) ? "" :
             String.format(FORMAT_LHS, modifier.mod, className, "[]");
         String initializer = !modifier.equals(Mod.LOCAL) ? "" :
@@ -281,7 +284,7 @@ public final class Format {
     public static String format2D(List<? extends List<?>> list, String name, Mod modifier) {
         if (list.size() == 0 || list.get(0).size() == 0) throw new EmptyList();
         int indent = modifier.equals(Mod.LOCAL) ? 2 : 1;
-        String className = getType(list.get(0).get(0));
+        String className = getType(list);
         String declaration = modifier.equals(Mod.LOCAL) ? "" :
             String.format(FORMAT_LHS, modifier.mod, className, "[][]");
         String initializer = !modifier.equals(Mod.LOCAL) ? "" :
@@ -413,7 +416,7 @@ public final class Format {
     public static String format3D(List<? extends List<? extends List<?>>> list, String name, Mod modifier) {
         if (list.size() == 0 || list.get(0).size() == 0 || list.get(0).get(0).size() == 0) throw new EmptyList();
         int indent = modifier.equals(Mod.LOCAL) ? 2 : 1;
-        String className = getType(list.get(0).get(0).get(0));
+        String className = getType(list);
         String declaration = modifier.equals(Mod.LOCAL) ? "" :
             String.format(FORMAT_LHS, modifier.mod, className, "[][][]");
         String initializer = !modifier.equals(Mod.LOCAL) ? "" :
@@ -542,14 +545,62 @@ public final class Format {
     }
 
     /**
+     * Return string representation of 3D array of Objects suitable for compiling.
+     * format3DObject declares and initializes a literal 3D array of elements from arr
+     * as with {@link #format3D(List, String, Mod) format3D}.
+     *
+     * @param arr 3D array of Objects to prepare for a literal 3D array initializer
+     * @param name name of variable for literal 3D array assignment
+     * @param modifier one of Mod.mod access modifiers, unless Mod.LOCAL
+     * @return string representation of 3D array suitable for compiling
+     */
+    public static String format3DObject(Object[][][] arr, String name, Mod modifier) {
+        // TODO: there is probably a way to do this with Arrays.stream
+        List<List<List<?>>> list3D = new ArrayList<List<List<?>>>();
+        for (Object[][] arr2D: arr) {
+            List<List<?>> list2D = new ArrayList<List<?>>();
+            for (Object[] arr1D : arr2D)
+                list2D.add(Arrays.stream(arr1D).collect(Collectors.toList()));
+            list3D.add(list2D);
+        }
+        return format3D(list3D, name, modifier);
+    }
+
+    /**
+     * Return string representation of 3D array of Objects suitable for compiling.
+     * format3DObject declares and initializes a literal 3D array of elements from arr
+     * as with {@link #format3D(List, String) format3D}.
+     *
+     * @param arr 3D array of Objects to prepare for a literal 3D array initializer
+     * @param name name of variable for literal 3D array assignment
+     * @return string representation of 3D array suitable for compiling
+     */
+    public static String format3DObject(Object[][][] arr, String name) {
+        return format3DObject(arr, name, Mod.LOCAL);
+    }
+
+    private static Object getObject(List<?> list) {
+        if (list.size() == 0) throw new EmptyList();
+        Object zeroth = list.get(0);
+        if (zeroth != null && List.class.isAssignableFrom(zeroth.getClass()))
+            return getObject((List<?>) zeroth);
+        for (int i = 0; i < list.size(); i++)
+            if (list.get(i) != null)
+                return list.get(i);
+        return null;
+    }
+
+    /**
      * Return string representing type of obj. If obj is of one of eight
      * primitive types (boolean, char, byte, short, int, long, float, double)
      * that type is returned, otherwise obj's class name without java.lang.
      *
-     * @param obj Object whose type string is returned
+     * @param list list whose element type is being returned
      * @return string representing type of obj
      */
-    private static String getType(Object obj) {
+    private static String getType(List<?> list) {
+        Object obj = getObject(list);
+        if (obj == null) throw new EmptyList("only null objects");
         Class cls = obj.getClass();
         String type = cls.getName().replace("java.lang.", "");
         // Autobox where possible.
@@ -578,6 +629,8 @@ public final class Format {
      */
     private static String repr(Object obj) {
         StringBuilder sb = new StringBuilder();
+        if (obj == null)
+            return sb.append("null").append(DELIM).toString();
         Class cls = obj.getClass();
         String name = cls.getName().replace("java.lang.", "");
         if (cls.isInstance(""))
