@@ -1,7 +1,7 @@
 /*
  * Generate.java
  *
- * Class for generating test data for Circle.java and CodecheckSquare.java.
+ * Class for generating test data for Circle.java.
  *
  * @author David C. Petty // http://j.mp/psb_david_petty
  */
