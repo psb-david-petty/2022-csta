@@ -587,94 +587,102 @@
 <span class="sourceLineNo">579</span>        return format3DObject(arr, name, Mod.LOCAL);<a name="line.579"></a>
 <span class="sourceLineNo">580</span>    }<a name="line.580"></a>
 <span class="sourceLineNo">581</span><a name="line.581"></a>
-<span class="sourceLineNo">582</span>    private static Object getObject(List&lt;?&gt; list) {<a name="line.582"></a>
-<span class="sourceLineNo">583</span>        if (list.size() == 0) throw new EmptyList();<a name="line.583"></a>
-<span class="sourceLineNo">584</span>        Object zeroth = list.get(0);<a name="line.584"></a>
-<span class="sourceLineNo">585</span>        if (zeroth != null &amp;&amp; List.class.isAssignableFrom(zeroth.getClass()))<a name="line.585"></a>
-<span class="sourceLineNo">586</span>            return getObject((List&lt;?&gt;) zeroth);<a name="line.586"></a>
-<span class="sourceLineNo">587</span>        for (int i = 0; i &lt; list.size(); i++)<a name="line.587"></a>
-<span class="sourceLineNo">588</span>            if (list.get(i) != null)<a name="line.588"></a>
-<span class="sourceLineNo">589</span>                return list.get(i);<a name="line.589"></a>
-<span class="sourceLineNo">590</span>        return null;<a name="line.590"></a>
-<span class="sourceLineNo">591</span>    }<a name="line.591"></a>
-<span class="sourceLineNo">592</span><a name="line.592"></a>
-<span class="sourceLineNo">593</span>    /**<a name="line.593"></a>
-<span class="sourceLineNo">594</span>     * Return string representing type of obj. If obj is of one of eight<a name="line.594"></a>
-<span class="sourceLineNo">595</span>     * primitive types (boolean, char, byte, short, int, long, float, double)<a name="line.595"></a>
-<span class="sourceLineNo">596</span>     * that type is returned, otherwise obj's class name without java.lang.<a name="line.596"></a>
-<span class="sourceLineNo">597</span>     *<a name="line.597"></a>
-<span class="sourceLineNo">598</span>     * @param list list whose element type is being returned<a name="line.598"></a>
-<span class="sourceLineNo">599</span>     * @return string representing type of obj<a name="line.599"></a>
-<span class="sourceLineNo">600</span>     */<a name="line.600"></a>
-<span class="sourceLineNo">601</span>    private static String getType(List&lt;?&gt; list) {<a name="line.601"></a>
-<span class="sourceLineNo">602</span>        Object obj = getObject(list);<a name="line.602"></a>
-<span class="sourceLineNo">603</span>        if (obj == null) throw new EmptyList("only null objects");<a name="line.603"></a>
-<span class="sourceLineNo">604</span>        Class cls = obj.getClass();<a name="line.604"></a>
-<span class="sourceLineNo">605</span>        String type = cls.getName().replace("java.lang.", "");<a name="line.605"></a>
-<span class="sourceLineNo">606</span>        // Autobox where possible.<a name="line.606"></a>
-<span class="sourceLineNo">607</span>        if (cls.isInstance(Boolean.FALSE)) type = "boolean";<a name="line.607"></a>
-<span class="sourceLineNo">608</span>        if (cls.isInstance('\0')) type = "char";<a name="line.608"></a>
-<span class="sourceLineNo">609</span>        if (cls.isInstance((byte) 0)) type = "byte";<a name="line.609"></a>
-<span class="sourceLineNo">610</span>        if (cls.isInstance((short) 0)) type = "short";<a name="line.610"></a>
-<span class="sourceLineNo">611</span>        if (cls.isInstance((int) 0)) type = "int";<a name="line.611"></a>
-<span class="sourceLineNo">612</span>        if (cls.isInstance((long) 0)) type = "long";<a name="line.612"></a>
-<span class="sourceLineNo">613</span>        if (cls.isInstance((float) 0)) type = "float";<a name="line.613"></a>
-<span class="sourceLineNo">614</span>        if (cls.isInstance((double) 0)) type = "double";<a name="line.614"></a>
-<span class="sourceLineNo">615</span>        return type;<a name="line.615"></a>
-<span class="sourceLineNo">616</span>    }<a name="line.616"></a>
-<span class="sourceLineNo">617</span><a name="line.617"></a>
-<span class="sourceLineNo">618</span>    /**<a name="line.618"></a>
-<span class="sourceLineNo">619</span>     * Return representative string for creating obj. The representation will<a name="line.619"></a>
-<span class="sourceLineNo">620</span>     * either be in a literal form (String, boolean, char, byte, short, int,<a name="line.620"></a>
-<span class="sourceLineNo">621</span>     * long, float, double), or an object-constructing form using new. The<a name="line.621"></a>
-<span class="sourceLineNo">622</span>     * parameters to the constructor will either be the value returned from the<a name="line.622"></a>
-<span class="sourceLineNo">623</span>     * objects repr method, or its toString method.<a name="line.623"></a>
-<span class="sourceLineNo">624</span>     * &lt;p&gt;<a name="line.624"></a>
-<span class="sourceLineNo">625</span>     * TODO: an objects toString method is not always suitable for its constructor<a name="line.625"></a>
-<span class="sourceLineNo">626</span>     *<a name="line.626"></a>
-<span class="sourceLineNo">627</span>     * @param obj object to return the representation of<a name="line.627"></a>
-<span class="sourceLineNo">628</span>     * @return representative string for creating obj<a name="line.628"></a>
-<span class="sourceLineNo">629</span>     */<a name="line.629"></a>
-<span class="sourceLineNo">630</span>    private static String repr(Object obj) {<a name="line.630"></a>
-<span class="sourceLineNo">631</span>        StringBuilder sb = new StringBuilder();<a name="line.631"></a>
-<span class="sourceLineNo">632</span>        if (obj == null)<a name="line.632"></a>
-<span class="sourceLineNo">633</span>            return sb.append("null").append(DELIM).toString();<a name="line.633"></a>
-<span class="sourceLineNo">634</span>        Class cls = obj.getClass();<a name="line.634"></a>
-<span class="sourceLineNo">635</span>        String name = cls.getName().replace("java.lang.", "");<a name="line.635"></a>
-<span class="sourceLineNo">636</span>        if (cls.isInstance(""))<a name="line.636"></a>
-<span class="sourceLineNo">637</span>            sb.append(String.format("\"%s\"", obj));<a name="line.637"></a>
-<span class="sourceLineNo">638</span>        else if (cls.isInstance('\0'))  // autobox Character<a name="line.638"></a>
-<span class="sourceLineNo">639</span>            sb.append(String.format("'\\u%04x'", (int) ((Character) obj).charValue()));<a name="line.639"></a>
-<span class="sourceLineNo">640</span>        else if (cls.isInstance(Boolean.FALSE)<a name="line.640"></a>
-<span class="sourceLineNo">641</span>            // Autobox the others for comparison<a name="line.641"></a>
-<span class="sourceLineNo">642</span>            || cls.isInstance((byte) 0)<a name="line.642"></a>
-<span class="sourceLineNo">643</span>            || cls.isInstance((short) 0)<a name="line.643"></a>
-<span class="sourceLineNo">644</span>            || cls.isInstance((int) 0)<a name="line.644"></a>
-<span class="sourceLineNo">645</span>            || cls.isInstance((long) 0)<a name="line.645"></a>
-<span class="sourceLineNo">646</span>            || cls.isInstance((float) 0)<a name="line.646"></a>
-<span class="sourceLineNo">647</span>            || cls.isInstance((double) 0))<a name="line.647"></a>
-<span class="sourceLineNo">648</span>            sb.append(String.format("%s%s", obj,<a name="line.648"></a>
-<span class="sourceLineNo">649</span>                cls.isInstance((long) 0) ? "L" :<a name="line.649"></a>
-<span class="sourceLineNo">650</span>                    cls.isInstance((float) 0) ? "F" : ""));<a name="line.650"></a>
-<span class="sourceLineNo">651</span>        else {<a name="line.651"></a>
-<span class="sourceLineNo">652</span>            // TODO: will not work unless toString() is close to constructor parameters<a name="line.652"></a>
-<span class="sourceLineNo">653</span>            String repr = String.format("new %s(%s)", name, obj.toString()<a name="line.653"></a>
-<span class="sourceLineNo">654</span>                // Remove surrounding brackets for constructor parameters.<a name="line.654"></a>
-<span class="sourceLineNo">655</span>                .replaceAll("^[(\\[{]|[}\\])]$", ""));<a name="line.655"></a>
-<span class="sourceLineNo">656</span>            // Check if obj has a repr method.<a name="line.656"></a>
-<span class="sourceLineNo">657</span>            for (Method method : obj.getClass().getMethods())<a name="line.657"></a>
-<span class="sourceLineNo">658</span>                if (method.getName().equals("repr"))<a name="line.658"></a>
-<span class="sourceLineNo">659</span>                    try {<a name="line.659"></a>
-<span class="sourceLineNo">660</span>                        repr = (String) method.invoke(obj);<a name="line.660"></a>
-<span class="sourceLineNo">661</span>                    } catch (ReflectiveOperationException e) {<a name="line.661"></a>
-<span class="sourceLineNo">662</span>                        e.printStackTrace();<a name="line.662"></a>
-<span class="sourceLineNo">663</span>                    }<a name="line.663"></a>
-<span class="sourceLineNo">664</span>            // Format w/ new keyword and repr method or parameters from toString method.<a name="line.664"></a>
-<span class="sourceLineNo">665</span>            sb.append(repr);<a name="line.665"></a>
-<span class="sourceLineNo">666</span>        }<a name="line.666"></a>
-<span class="sourceLineNo">667</span>        return sb.append(DELIM).toString();<a name="line.667"></a>
-<span class="sourceLineNo">668</span>    }<a name="line.668"></a>
-<span class="sourceLineNo">669</span>}<a name="line.669"></a>
+<span class="sourceLineNo">582</span>    /**<a name="line.582"></a>
+<span class="sourceLineNo">583</span>     * Return first non-null object in inner-most list. Throw EmptyList()<a name="line.583"></a>
+<span class="sourceLineNo">584</span>     * if any nested list is empty.<a name="line.584"></a>
+<span class="sourceLineNo">585</span>     *<a name="line.585"></a>
+<span class="sourceLineNo">586</span>     * @param list list is nested, non-empty, and contains a non-null object<a name="line.586"></a>
+<span class="sourceLineNo">587</span>     * @return first non-null object in inner-most list<a name="line.587"></a>
+<span class="sourceLineNo">588</span>     */<a name="line.588"></a>
+<span class="sourceLineNo">589</span>    private static Object getObject(List&lt;?&gt; list) {<a name="line.589"></a>
+<span class="sourceLineNo">590</span>        if (list.size() == 0) throw new EmptyList();<a name="line.590"></a>
+<span class="sourceLineNo">591</span>        Object zeroth = list.get(0);<a name="line.591"></a>
+<span class="sourceLineNo">592</span>        if (zeroth != null &amp;&amp; List.class.isAssignableFrom(zeroth.getClass()))<a name="line.592"></a>
+<span class="sourceLineNo">593</span>            return getObject((List&lt;?&gt;) zeroth);<a name="line.593"></a>
+<span class="sourceLineNo">594</span>        for (int i = 0; i &lt; list.size(); i++)<a name="line.594"></a>
+<span class="sourceLineNo">595</span>            if (list.get(i) != null)<a name="line.595"></a>
+<span class="sourceLineNo">596</span>                return list.get(i);<a name="line.596"></a>
+<span class="sourceLineNo">597</span>        return null;<a name="line.597"></a>
+<span class="sourceLineNo">598</span>    }<a name="line.598"></a>
+<span class="sourceLineNo">599</span><a name="line.599"></a>
+<span class="sourceLineNo">600</span>    /**<a name="line.600"></a>
+<span class="sourceLineNo">601</span>     * Return string representing type of obj. If obj is of one of eight<a name="line.601"></a>
+<span class="sourceLineNo">602</span>     * primitive types (boolean, char, byte, short, int, long, float, double)<a name="line.602"></a>
+<span class="sourceLineNo">603</span>     * that type is returned, otherwise obj's class name without java.lang.<a name="line.603"></a>
+<span class="sourceLineNo">604</span>     * Throws EmptyList("only null objects") if all objects are null.<a name="line.604"></a>
+<span class="sourceLineNo">605</span>     *<a name="line.605"></a>
+<span class="sourceLineNo">606</span>     * @param list list whose element type is being returned<a name="line.606"></a>
+<span class="sourceLineNo">607</span>     * @return string representing type of obj<a name="line.607"></a>
+<span class="sourceLineNo">608</span>     */<a name="line.608"></a>
+<span class="sourceLineNo">609</span>    private static String getType(List&lt;?&gt; list) {<a name="line.609"></a>
+<span class="sourceLineNo">610</span>        Object obj = getObject(list);<a name="line.610"></a>
+<span class="sourceLineNo">611</span>        if (obj == null) throw new EmptyList("only null objects");<a name="line.611"></a>
+<span class="sourceLineNo">612</span>        Class cls = obj.getClass();<a name="line.612"></a>
+<span class="sourceLineNo">613</span>        String type = cls.getName().replace("java.lang.", "");<a name="line.613"></a>
+<span class="sourceLineNo">614</span>        // Autobox where possible.<a name="line.614"></a>
+<span class="sourceLineNo">615</span>        if (cls.isInstance(Boolean.FALSE)) type = "boolean";<a name="line.615"></a>
+<span class="sourceLineNo">616</span>        if (cls.isInstance('\0')) type = "char";<a name="line.616"></a>
+<span class="sourceLineNo">617</span>        if (cls.isInstance((byte) 0)) type = "byte";<a name="line.617"></a>
+<span class="sourceLineNo">618</span>        if (cls.isInstance((short) 0)) type = "short";<a name="line.618"></a>
+<span class="sourceLineNo">619</span>        if (cls.isInstance((int) 0)) type = "int";<a name="line.619"></a>
+<span class="sourceLineNo">620</span>        if (cls.isInstance((long) 0)) type = "long";<a name="line.620"></a>
+<span class="sourceLineNo">621</span>        if (cls.isInstance((float) 0)) type = "float";<a name="line.621"></a>
+<span class="sourceLineNo">622</span>        if (cls.isInstance((double) 0)) type = "double";<a name="line.622"></a>
+<span class="sourceLineNo">623</span>        return type;<a name="line.623"></a>
+<span class="sourceLineNo">624</span>    }<a name="line.624"></a>
+<span class="sourceLineNo">625</span><a name="line.625"></a>
+<span class="sourceLineNo">626</span>    /**<a name="line.626"></a>
+<span class="sourceLineNo">627</span>     * Return representative string for creating obj. The representation will<a name="line.627"></a>
+<span class="sourceLineNo">628</span>     * either be in a literal form (String, boolean, char, byte, short, int,<a name="line.628"></a>
+<span class="sourceLineNo">629</span>     * long, float, double), or an object-constructing form using new. The<a name="line.629"></a>
+<span class="sourceLineNo">630</span>     * parameters to the constructor will either be the value returned from the<a name="line.630"></a>
+<span class="sourceLineNo">631</span>     * objects repr method, or its toString method.<a name="line.631"></a>
+<span class="sourceLineNo">632</span>     * &lt;p&gt;<a name="line.632"></a>
+<span class="sourceLineNo">633</span>     * TODO: an objects toString method is not always suitable for its constructor<a name="line.633"></a>
+<span class="sourceLineNo">634</span>     *<a name="line.634"></a>
+<span class="sourceLineNo">635</span>     * @param obj object to return the representation of<a name="line.635"></a>
+<span class="sourceLineNo">636</span>     * @return representative string for creating obj<a name="line.636"></a>
+<span class="sourceLineNo">637</span>     */<a name="line.637"></a>
+<span class="sourceLineNo">638</span>    private static String repr(Object obj) {<a name="line.638"></a>
+<span class="sourceLineNo">639</span>        StringBuilder sb = new StringBuilder();<a name="line.639"></a>
+<span class="sourceLineNo">640</span>        if (obj == null)<a name="line.640"></a>
+<span class="sourceLineNo">641</span>            return sb.append("null").append(DELIM).toString();<a name="line.641"></a>
+<span class="sourceLineNo">642</span>        Class cls = obj.getClass();<a name="line.642"></a>
+<span class="sourceLineNo">643</span>        String name = cls.getName().replace("java.lang.", "");<a name="line.643"></a>
+<span class="sourceLineNo">644</span>        if (cls.isInstance(""))<a name="line.644"></a>
+<span class="sourceLineNo">645</span>            sb.append(String.format("\"%s\"", obj));<a name="line.645"></a>
+<span class="sourceLineNo">646</span>        else if (cls.isInstance('\0'))  // autobox Character<a name="line.646"></a>
+<span class="sourceLineNo">647</span>            sb.append(String.format("'\\u%04x'", (int) ((Character) obj).charValue()));<a name="line.647"></a>
+<span class="sourceLineNo">648</span>        else if (cls.isInstance(Boolean.FALSE)<a name="line.648"></a>
+<span class="sourceLineNo">649</span>            // Autobox the others for comparison<a name="line.649"></a>
+<span class="sourceLineNo">650</span>            || cls.isInstance((byte) 0)<a name="line.650"></a>
+<span class="sourceLineNo">651</span>            || cls.isInstance((short) 0)<a name="line.651"></a>
+<span class="sourceLineNo">652</span>            || cls.isInstance((int) 0)<a name="line.652"></a>
+<span class="sourceLineNo">653</span>            || cls.isInstance((long) 0)<a name="line.653"></a>
+<span class="sourceLineNo">654</span>            || cls.isInstance((float) 0)<a name="line.654"></a>
+<span class="sourceLineNo">655</span>            || cls.isInstance((double) 0))<a name="line.655"></a>
+<span class="sourceLineNo">656</span>            sb.append(String.format("%s%s", obj,<a name="line.656"></a>
+<span class="sourceLineNo">657</span>                cls.isInstance((long) 0) ? "L" :<a name="line.657"></a>
+<span class="sourceLineNo">658</span>                    cls.isInstance((float) 0) ? "F" : ""));<a name="line.658"></a>
+<span class="sourceLineNo">659</span>        else {<a name="line.659"></a>
+<span class="sourceLineNo">660</span>            // TODO: will not work unless toString() is close to constructor parameters<a name="line.660"></a>
+<span class="sourceLineNo">661</span>            String repr = String.format("new %s(%s)", name, obj.toString()<a name="line.661"></a>
+<span class="sourceLineNo">662</span>                // Remove surrounding brackets for constructor parameters.<a name="line.662"></a>
+<span class="sourceLineNo">663</span>                .replaceAll("^[(\\[{]|[}\\])]$", ""));<a name="line.663"></a>
+<span class="sourceLineNo">664</span>            // Check if obj has a repr method.<a name="line.664"></a>
+<span class="sourceLineNo">665</span>            for (Method method : obj.getClass().getMethods())<a name="line.665"></a>
+<span class="sourceLineNo">666</span>                if (method.getName().equals("repr"))<a name="line.666"></a>
+<span class="sourceLineNo">667</span>                    try {<a name="line.667"></a>
+<span class="sourceLineNo">668</span>                        repr = (String) method.invoke(obj);<a name="line.668"></a>
+<span class="sourceLineNo">669</span>                    } catch (ReflectiveOperationException e) {<a name="line.669"></a>
+<span class="sourceLineNo">670</span>                        e.printStackTrace();<a name="line.670"></a>
+<span class="sourceLineNo">671</span>                    }<a name="line.671"></a>
+<span class="sourceLineNo">672</span>            // Format w/ new keyword and repr method or parameters from toString method.<a name="line.672"></a>
+<span class="sourceLineNo">673</span>            sb.append(repr);<a name="line.673"></a>
+<span class="sourceLineNo">674</span>        }<a name="line.674"></a>
+<span class="sourceLineNo">675</span>        return sb.append(DELIM).toString();<a name="line.675"></a>
+<span class="sourceLineNo">676</span>    }<a name="line.676"></a>
+<span class="sourceLineNo">677</span>}<a name="line.677"></a>
 
 
 
