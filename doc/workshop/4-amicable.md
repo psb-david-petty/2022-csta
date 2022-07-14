@@ -2,9 +2,9 @@
 
 | Step | Instructions |
 | --- | --- |
-| Complete a solution for `Amicable` | <ol><li>See [problem](https://psb-david-petty.github.io/2022-csta/src/4-Amicable/problem.html). |
-| Use `Generate.java` to generate test data | <ol><li>Generate test data. |
-| Complete `AmicableTest.java` | <ol><li>Add generated test data. <li>Complete `testFindPosition()` and `testGetSuccessorArray()` unit tests. |
+| Complete a solution for `Amicable` | <ol><li>See [problem](https://psb-david-petty.github.io/2022-csta/src/4-Amicable/problem.html).</li></ol> |
+| Use `Generate.java` to generate test data | <ol><li>Generate test data.</li></ol> |
+| Complete `AmicableTest.java` | <ol><li>Add generated test data.</li> <li>Complete `testFindPosition()` and `testGetSuccessorArray()` unit tests.</li></ol> |
 
 ## Solution(s)
 
