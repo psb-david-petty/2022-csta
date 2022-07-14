@@ -1,4 +1,4 @@
-# 4. Create Codecheck.io unit tests on your own
+# 4. Create Codecheck.io Junit tests on your own
 
 | Step | Instructions |
 | --- | --- |
