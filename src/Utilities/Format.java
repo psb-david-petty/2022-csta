@@ -579,6 +579,13 @@ public final class Format {
         return format3DObject(arr, name, Mod.LOCAL);
     }
 
+    /**
+     * Return first non-null object in inner-most list. Throw EmptyList()
+     * if any nested list is empty.
+     *
+     * @param list list is nested, non-empty, and contains a non-null object
+     * @return first non-null object in inner-most list
+     */
     private static Object getObject(List<?> list) {
         if (list.size() == 0) throw new EmptyList();
         Object zeroth = list.get(0);
@@ -594,6 +601,7 @@ public final class Format {
      * Return string representing type of obj. If obj is of one of eight
      * primitive types (boolean, char, byte, short, int, long, float, double)
      * that type is returned, otherwise obj's class name without java.lang.
+     * Throws EmptyList("only null objects") if all objects are null.
      *
      * @param list list whose element type is being returned
      * @return string representing type of obj
