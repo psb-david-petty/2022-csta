@@ -5,8 +5,10 @@
 | Link | Description |
 | --- | --- |
 | [./setup.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/setup.html) | Setup |
-| [./1-codecheck.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-codecheck.html) | Introduction to Junit 4 |
-| [./2-circle.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-circle.html) | Generate your own solution and test data |
+| [./1-codecheck.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/1-codecheck.html) | Introduction to Unit testing with Codecheck.io and Junit |
+| [./2-circle.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/2-circle.html) | Create a Codecheck.io assignment on your own |
+| [./3-successors.md](https://psb-david-petty.github.io/2022-csta/doc/workshop3-successors.html) | Create a Codecheck.io using arrays (APCS-A FRQ) |
+| [./4-amicable.md](https://psb-david-petty.github.io/2022-csta/doc/workshop/4-amicable.html) | Create Codecheck.io Junit tests on your own |
 
 <hr>
 
