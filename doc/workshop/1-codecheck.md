@@ -16,7 +16,7 @@ Let's work on this together!
 ## [Codecheck.io](Codecheck.io) Files
 
 The files in the directory are as follows (not all files are included in `codecheck.zip`):
- 
+
 | File | Instructions |
 | --- | --- |
 | `CodecheckCube.java` | Java source file (see [problem](https://psb-david-petty.github.io/2022-csta/src/1-Codecheck/problem.html)). |
