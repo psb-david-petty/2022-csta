@@ -40,6 +40,8 @@ public class Generate {
             maxima.add(n * 47);
             amicable.add(false);
         }
+
+        // Output generated test data.
         System.out.println(Format.format1D(minima, "minima", Format.Mod.PRIVATE));
         System.out.println(Format.format1D(maxima, "maxima", Format.Mod.PRIVATE));
         System.out.println(Format.format1D(amicable, "amicable", Format.Mod.PRIVATE));

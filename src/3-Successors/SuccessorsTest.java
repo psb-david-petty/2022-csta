@@ -119,6 +119,7 @@ public class SuccessorsTest {
         assert ias.length == ras.length && ras.length == pas.length
             : "ias.length != ras.length || ras.length != pas.length";
         for (int i = 0; i < ias.length; i++) {
+//HIDE
             int start = ras[i][0], end = ras[i][1];
             for (int j = 0; j < pas[i].length; j++) {
                 Position ap = Successors.findPosition(j + start, ias[i]);
@@ -126,15 +127,17 @@ public class SuccessorsTest {
                     Arrays.deepToString(ias[i]), j + start, ap);
             Assert.assertEquals(pas[i][j].toString() + " != " + ap,
                 pas[i][j], ap);
+            //EDIT // Give feedback on findPosition and use method from Assert to test.
             }
         }
     }
 
     @Test
-    public void testSetSuccessorArray() {
+    public void testGetSuccessorArray() {
         System.out.printf("%s\n", Feedback.formatBanner("testSetSuccessorArray"));
         assert ias.length == sas.length : "ias.length != sas.length";
         for (int i = 0; i < ias.length; i++) {
+//HIDE
             Position[][] aa = Successors.getSuccessorArray(ias[i]);
             Position[][] ea = sas[i];
             System.out.printf("%s -> %s\n",
@@ -142,6 +145,7 @@ public class SuccessorsTest {
             Assert.assertArrayEquals(Arrays.deepToString(ea)
                 + " != " + Arrays.deepToString(aa),
                 aa, ea);
+            //EDIT // Give feedback on getSuccessorArray and use method from Assert to test.
         }
     }
 }

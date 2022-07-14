@@ -15,6 +15,7 @@ public class Generate {
         List<Circle> circles = new ArrayList<Circle>();
         List<Double> areas = new ArrayList<Double>();
         // Add some test circles.
+//HIDE
         circles.add(new Circle(0, 0, 10));
         circles.add(new Circle(100, 100, 100));
         circles.add(new Circle(3, 4, 5));
@@ -41,7 +42,9 @@ public class Generate {
             sign *= -1;
         }
 
-        // Output the generated test data.
+        //EDIT // Add your code that generates test data
+
+        // Output generated test data.
         System.out.printf("%s\n",
             Format.format1D(circles, "circles", Format.Mod.PRIVATE));
         System.out.printf("%s\n",

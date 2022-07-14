@@ -31,17 +31,21 @@ public class Generate {
         // Generate positions in the inclusive range of ras[i] for inputs[i].
         List<List<Position>> pls = new ArrayList<>();   // position lists
         for (int i = 0; i < ias.length; i++) {
+//HIDE
             List<Position> ps = new ArrayList<Position>();
             pls.add(ps);
             int start = ras[i][0], end = ras[i][1];
             for (int j = start; j < end; j++)
                 ps.add(Successors.findPosition(j, ias[i]));
+            //EDIT // Use findPosition to generate test data for all ias range values.
         }
 
         // Generate successor arrays for each input[i].
         Position[][][] successorArrays = new Position[ias.length][][];
         for (int i = 0; i < ias.length; i++)
             successorArrays[i] = Successors.getSuccessorArray(ias[i]);
+
+        // Output generated test data.
         System.out.printf("%s\n", Format.format3Dint(ias, "ias", Format.Mod.PRIVATE));
         System.out.printf("%s\n", Format.format2Dint(ras, "ras", Format.Mod.PRIVATE));
         System.out.printf("%s\n", Format.format2D(pls, "pas", Format.Mod.PRIVATE));

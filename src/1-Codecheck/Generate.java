@@ -20,7 +20,7 @@ public class Generate {
             cubes.add(Arrays.asList(n, n * n * n));
         }
 
-        // Print out test data.
+        // Output generated test data.
         System.out.printf("        // powers of two and their squares\n%s\n",
             Format.format2D(squares, "squares"));
         System.out.printf("        // powers of two and their cubes\n%s\n",

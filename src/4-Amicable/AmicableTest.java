@@ -53,25 +53,29 @@ public class AmicableTest {
     @Test
     public void testSumProperDivisors() {
         System.out.printf("%s\n", Feedback.formatBanner("testSumProperDivisors"));
+//HIDE
         for (int i = 0; i < sums.length; i++) {
             System.out.printf("sumProperDivisors(%s) == %s\n",
                 i, Amicable.sumProperDivisors(i));
             Assert.assertEquals(String.format("sumProperDivisors(%s)", i),
                  sums[i], Amicable.sumProperDivisors(i));
+            //EDIT // Complete test of sumProperDivisors, giving feedback.
             }
     }
 
     @Test
     public void testAreAmicable() {
         System.out.printf("%s\n", Feedback.formatBanner("testAreAmicable"));
+//HIDE
         assert minima.length == maxima.length && maxima.length == amicable.length:
-            String.format("m (%s), n (%s) or b (%s) not the same length\n",
+            String.format("minima (%s), maxima (%s) or amicable (%s) not the same length\n",
                 minima.length, maxima.length, amicable.length);
         for (int i = 0; i < minima.length; i++) {
             System.out.printf("areAmicable(%s, %s) == %s\n",
                 minima[i], maxima[i], Amicable.areAmicable(minima[i], maxima[i]), amicable[i]);
             Assert.assertEquals("areAmicable(" + minima[i] + ", " + maxima[i] + ")",
                 amicable[i], Amicable.areAmicable(minima[i], maxima[i]));
+            //EDIT // Complete test of areAmicable, giving feedback.
         }
     }
 }

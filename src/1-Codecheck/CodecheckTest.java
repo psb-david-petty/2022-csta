@@ -126,8 +126,10 @@ public class CodecheckTest {
             int n = squares[i][0], nSquared = squares[i][1];
             System.out.printf("square(%s) \u2192 %s\n",
                 n, CodecheckSquare.square(n));
+//HIDE
             Assert.assertEquals(String.format("square(%s)", n),
                  nSquared, CodecheckSquare.square(n));
+            //EDIT // Use a method from the Assert class to perform the test.
             }
     }
 
@@ -138,8 +140,10 @@ public class CodecheckTest {
             int n = cubes[i][0], nCubed = cubes[i][1];
             System.out.printf("cube(%s) \u2192 %s\n",
                 n, CodecheckCube.cube(n));
+//HIDE
             Assert.assertEquals(String.format("cube(%s)", n),
                 nCubed, CodecheckCube.cube(n));
-            }
+            //EDIT // Use a method from the Assert class to perform the test.
+        }
     }
 }
