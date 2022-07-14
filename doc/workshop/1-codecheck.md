@@ -17,6 +17,7 @@ Let's work on this together!
 
 The files in the directory are as follows (not all files are included in `codecheck.zip`):
 
+
 | File | Instructions |
 | --- | --- |
 | `CodecheckCube.java` | Java source file (see [problem](https://psb-david-petty.github.io/2022-csta/src/1-Codecheck/problem.html)). |
@@ -29,13 +30,14 @@ The files in the directory are as follows (not all files are included in `codech
 | `Format.java` | Java source file to format generated unit-test data. |
 | `Generate.java` | A Java source file that generates unit-test data. |
 | `codecheck.bat` | Script to create `codecheck.zip`. |
-| ``codecheck.sh` | Script to create `codecheck.zip`. |
+| `codecheck.sh` | Script to create `codecheck.zip`. |
 | `codecheck.zip` | File created by `codecheck.bat` or `codecheck.sh` scritps. |
-| `problem.html` | HTML version of problem statement. Is included in `codecheck.zip`.|
-| `problem.md` | [GFM](https://github.github.com/gfm/) version of problem statement used to generate HTML version (also included to work with [`repl.it`](http://repl.it/).|
+| `problem.html` | HTML version of problem statement. Is included in `codecheck.zip`. |
+| `problem.md` | [GFM](https://github.github.com/gfm/) version of problem statement used to generate HTML version (also included to work with [`repl.it`](http://repl.it/). |
 | `test.in` | Text file with program input (see [problem](https://psb-david-petty.github.io/2022-csta/src/1-Codecheck/problem.html)). |
 | `zipfiles.txt` | Test file that contains names of all files to include in `coecheck.zip`. |
 
+    
 ## Solution
 
 Possible missing code from `CodecheckTest.java` is below. 
