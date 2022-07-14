@@ -4,7 +4,7 @@
 
 | Link | Description |
 | --- | --- |
-| [./1-CodeCheck](https://github.com/psb-david-petty/2022-csta/tree/main/src/1-Codecheck) | Introductory [CodeCheck.io](http://CodeCheck.io) repository linked [here](https://codecheck.io/files/220709025226ooweknjth7pw6dnc3iosbr9). |
+| [./1-Codecheck](https://github.com/psb-david-petty/2022-csta/tree/main/src/1-Codecheck) | Introductory [CodeCheck.io](http://CodeCheck.io) repository linked [here](https://codecheck.io/files/220709025226ooweknjth7pw6dnc3iosbr9). |
 | [./2-Circle](https://github.com/psb-david-petty/2022-csta/tree/main/src/2-Circle) | Introductory [CodeCheck.io](http://CodeCheck.io) repository for *you* to create. Complete the solution, generate some test data, and complete the tests. |
 | [./3-Successors](https://github.com/psb-david-petty/2022-csta/tree/main/src/3-Successors) | Create a [CodeCheck.io](http://CodeCheck.io) using arrays (APCS-A FRQ). |
 | [./4-Amicable](https://github.com/psb-david-petty/2022-csta/tree/main/src/4-Amicable) | Create [CodeCheck.io](http://CodeCheck.io) unit tests on your own. |
